@@ -1,4 +1,4 @@
-# Pacman Java 21
+# Pacman Java 21 (Building)
 
 A modern implementation of the classic Pacman game built with Java 21.
 
@@ -167,3 +167,31 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - Original Pacman game by Namco
 - All contributors and testers
+
+## Pacman Game Flow: 
+
+flowchart TD
+    Start([Start Game]) --> Initialize[Initialize Game]
+    Initialize --> Menu[Menu State]
+    
+    Menu -->|Start Game| LoadLevel[Load Level]
+    LoadLevel --> GameLoop[Game Loop]
+    
+    GameLoop -->|Update| UpdateEntities[Update Entities]
+    UpdateEntities --> CheckCollisions[Check Collisions]
+    CheckCollisions --> UpdateScore[Update Score]
+    UpdateScore --> CheckGameState[Check Game State]
+    
+    CheckGameState -->|Continue| Render[Render Frame]
+    Render --> GameLoop
+    
+    CheckGameState -->|Level Complete| NextLevel{Next Level?}
+    NextLevel -->|Yes| LoadLevel
+    NextLevel -->|No| Victory[Victory Screen]
+    
+    CheckGameState -->|Game Over| GameOver[Game Over State]
+    
+    GameOver --> Menu
+    Victory --> Menu
+    
+    Menu -->|Quit| Exit([Exit Game])
