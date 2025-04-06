@@ -1,9 +1,8 @@
+import javax.swing.JFrame;
+
 public class Main {
-    public static void main(String[] args) {
-        // PacmanGame game = new PacmanGame();
+    public static void main(String[] args) throws Exception {
         
-        // Start the game
-        // game.startGame();
     }
     
 }
